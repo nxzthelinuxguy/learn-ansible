@@ -1,0 +1,12 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: DEBUG MODULE EXAMPLE WITH VAR ATTRIBUTE
+            debug:
+                    var: ansible_date_time.date
+          
+          - name: DEBUG MODULE EXAMPLE WITH VAR ATTRIBUTE
+            debug:
+                    var: ansible_date_time.time

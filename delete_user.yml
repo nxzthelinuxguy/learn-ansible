@@ -1,0 +1,6 @@
+---
+- hosts: vmware
+  become: true
+  tasks:
+          - name: Deleting user
+            user: name=nawaz state=absent force=yes remove=yes

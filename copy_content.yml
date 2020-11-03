@@ -1,0 +1,7 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: Copying content from here
+            copy: content="<b><h1><center> NxZei" dest=/home/ansible/index.html

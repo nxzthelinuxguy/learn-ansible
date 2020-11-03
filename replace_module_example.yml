@@ -1,0 +1,10 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: REPLACING MODULE EXAMPLE
+            replace:
+                    path: /home/ansible/index.html
+                    regexp: 'NxZei'
+                    replace: 'NxZ TheLinuxGuy'

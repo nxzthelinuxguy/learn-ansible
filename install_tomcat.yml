@@ -1,0 +1,24 @@
+---
+- hosts: vmware
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Install java 8
+    yum: name=java-1.8.0-openjdk.x86_64 state=present  
+          
+  - name: Download Tomcat
+    get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.59/bin/apache-tomcat-8.5.59.tar.gz dest=/home/ansible
+
+  - name: Extract the file downloaded tomcat file
+    command: tar xvf apache-tomcat-8.5.59.tar.gz
+
+  - name: Move the Tomcat directory to a smaller one
+    command: mv apache-tomcat-8.5.59 tomcat
+
+  - name: Change Ownership and group of the Tomcat directory
+    file: path=/home/ansible/tomcat owner=ansible group=ansible mode=775 state=directory recurse=yes
+
+  - name: Start Tomcat
+    command: nohup /home/ansible/tomcat/bin/startup.sh # Execute command even after you have exited from the shell prompt
+    become: true
+    become_user: ansible

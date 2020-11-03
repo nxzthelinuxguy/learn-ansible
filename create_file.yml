@@ -1,0 +1,10 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: Create empty file on root dir
+            file: path=~/nawaz.txt state=touch
+          
+          - name: Create empty file on ansible home dir
+            file: path=/home/ansible/nawaz.txt state=touch mode=600 owner=ansible group=ansible

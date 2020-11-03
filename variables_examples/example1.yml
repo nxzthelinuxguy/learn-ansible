@@ -1,0 +1,9 @@
+---
+
+- hosts: vmware
+  vars: 
+    name: Nawaz
+  tasks:
+          - name: BASIC VARIABLE EXAMPLE 
+            debug:
+                    msg: "{{ name }}"

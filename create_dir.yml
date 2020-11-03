@@ -1,0 +1,17 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: Create a directory
+            file: path=/home/ansible/web state=directory mode=755 owner=ansible group=ansible
+
+          - name: Create multiple directories
+            file: path=/home/ansible/{{item}} state=directory owner=ansible group=ansible mode=700
+            with_items:
+                    - '/home/ansible/dir1'
+                    - '/home/ansible/dir2'
+                    - '/home/ansible/dir3'
+
+          - name: Create a user
+            user: name=nawaz password=x shell=/bin/bash

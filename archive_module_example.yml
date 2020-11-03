@@ -1,0 +1,10 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: ARCHIVE MODULE EXAMPLE
+            archive:
+                    path: /home/ansible
+                    dest: /home/ansible/app.zip
+                    format: zip

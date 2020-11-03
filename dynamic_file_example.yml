@@ -1,0 +1,7 @@
+---
+
+- hosts: vmware
+  become: true
+  tasks:
+          - name: Dynamic file creation example
+            command: touch nawaz{{ansible_date_time.date}}.log

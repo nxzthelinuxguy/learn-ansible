@@ -1,0 +1,12 @@
+---
+
+- hosts: vmware
+  tasks:
+          - name: REGISTER A VARIABLE EXAMPLE
+            shell: "find *.txt"
+            args:
+                    chdir: "/home/ansible"
+            register: registered_output
+          - debug:
+                  #    var: registered_output
+                  msg: "{{ registered_output }}"

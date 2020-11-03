@@ -1,0 +1,15 @@
+---
+
+- hosts: vmware
+  vars:
+          name:
+                  - Nawaz
+                  - Seher
+  tasks:
+          - name: VARIABLES ARRAY EXAMPLE
+            debug:
+                    msg: "{{ name[0] }}"
+
+          - name: VARIABLES ARRAY EXAMPLE
+            debug:
+                    msg: "{{ name[1] }}"
